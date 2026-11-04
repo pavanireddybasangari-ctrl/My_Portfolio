@@ -1,6 +1,7 @@
 import { ThreePortfolioScene } from './threeScene.js';
 import confetti from 'canvas-confetti';
 import { createIcons, icons } from 'lucide';
+import gsap from 'gsap';
 
 // Project Database
 const projectsData = {
@@ -32,28 +33,31 @@ function initApp() {
     console.warn('WebGL initialization error:', err);
   }
 
-  // 3. Custom Cursor Follower
+  // 3. Premium Interactive Custom Cursor
   initCustomCursor();
 
-  // 4. Dynamic Typewriter
+  // 4. Subtle Magnetic Interactive Elements
+  initMagneticButtons();
+
+  // 5. Dynamic Typewriter
   initTypewriter();
 
-  // 5. Navigation & Scroll Spy
+  // 6. Navigation & Scroll Spy
   initNavigation();
 
-  // 6. 3D Card Tilt Effects
+  // 7. 3D Card Tilt Effects
   initTiltCards();
 
-  // 7. Clipboard Copy Functionality
+  // 8. Clipboard Copy Functionality
   initClipboardCopy();
 
-  // 8. Live Hyderabad Clock
+  // 9. Live Hyderabad Clock
   initLiveClock();
 
-  // 9. Modals (Projects & Bio)
+  // 10. Modals (Projects & Bio)
   initModals();
 
-  // 10. Interactive Contact Form
+  // 11. Interactive Contact Form
   initContactForm();
 }
 
@@ -63,41 +67,79 @@ if (document.readyState === 'loading') {
   initApp();
 }
 
-// Minimal Circular Cyber Cursor System
+// Premium Interactive Cyber Cursor System
 function initCustomCursor() {
   const dot = document.getElementById('cursor-dot');
   const outline = document.getElementById('cursor-outline');
+  const badge = document.getElementById('cursor-badge');
   if (!dot || !outline) return;
 
   // Don't run on purely touch devices without hover capability
   if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
 
+  // Touch fallback: disable custom cursor on touch interaction
+  window.addEventListener('touchstart', () => {
+    document.body.classList.remove('has-custom-cursor', 'cursor-hover', 'cursor-project', 'cursor-text-mode', 'cursor-active');
+    dot.style.display = 'none';
+    outline.style.display = 'none';
+    trails.forEach(t => { t.style.display = 'none'; });
+  }, { once: true });
+
+  // Enable custom cursor mode on desktop body
+  document.body.classList.add('has-custom-cursor');
+
+  // Trailing micro-points
+  const trails = [
+    document.getElementById('cursor-trail-1'),
+    document.getElementById('cursor-trail-2'),
+    document.getElementById('cursor-trail-3')
+  ].filter(Boolean);
+
   let mouseX = -100;
   let mouseY = -100;
+  let lastMouseX = -100;
+  let lastMouseY = -100;
+  let dotX = -100;
+  let dotY = -100;
   let outlineX = -100;
   let outlineY = -100;
+
+  const trailPositions = [
+    { x: -100, y: -100 },
+    { x: -100, y: -100 },
+    { x: -100, y: -100 }
+  ];
+  const trailLerp = [0.32, 0.22, 0.14];
+
+  let mouseSpeed = 0;
   let isVisible = false;
+  let isProject = false;
+  let isHovered = false;
 
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
+    const dist = Math.hypot(mouseX - lastMouseX, mouseY - lastMouseY);
+    mouseSpeed = Math.min(dist, 40);
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
+
     if (!isVisible) {
       isVisible = true;
-      outlineX = mouseX;
-      outlineY = mouseY;
+      dotX = outlineX = mouseX;
+      dotY = outlineY = mouseY;
+      trailPositions.forEach(p => { p.x = mouseX; p.y = mouseY; });
       dot.style.opacity = '1';
       outline.style.opacity = '1';
     }
-
-    // Direct zero-latency tracking for core dot
-    dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
   });
 
   document.addEventListener('mouseleave', () => {
     isVisible = false;
     dot.style.opacity = '0';
     outline.style.opacity = '0';
+    trails.forEach(t => { t.style.opacity = '0'; });
   });
 
   document.addEventListener('mouseenter', () => {
@@ -107,21 +149,47 @@ function initCustomCursor() {
   });
 
   window.addEventListener('blur', () => {
-    document.body.classList.remove('cursor-hover', 'cursor-active');
+    document.body.classList.remove('cursor-hover', 'cursor-project', 'cursor-text-mode', 'cursor-active');
   });
 
-  // Smooth elastic trailing ring loop (60fps)
-  function renderOutline() {
-    outlineX += (mouseX - outlineX) * 0.2;
-    outlineY += (mouseY - outlineY) * 0.2;
+  // Smooth Dual Animation Loop (Center Dot + Delayed Outer Ring + Trailing Micro-Points)
+  function renderCursor() {
+    if (isVisible) {
+      // 1. Crisp responsive follow for center dot
+      dotX += (mouseX - dotX) * 0.85;
+      dotY += (mouseY - dotY) * 0.85;
+      dot.style.transform = `translate3d(${dotX.toFixed(2)}px, ${dotY.toFixed(2)}px, 0) translate(-50%, -50%)`;
 
-    outline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
+      // 2. Smooth delayed follow for outer ring
+      outlineX += (mouseX - outlineX) * 0.16;
+      outlineY += (mouseY - outlineY) * 0.16;
+      outline.style.transform = `translate3d(${outlineX.toFixed(2)}px, ${outlineY.toFixed(2)}px, 0) translate(-50%, -50%)`;
 
-    requestAnimationFrame(renderOutline);
+      // 3. Subtle trailing micro-points following velocity
+      mouseSpeed *= 0.88;
+      let prevX = mouseX;
+      let prevY = mouseY;
+
+      for (let i = 0; i < trails.length; i++) {
+        const p = trailPositions[i];
+        const factor = trailLerp[i];
+        p.x += (prevX - p.x) * factor;
+        p.y += (prevY - p.y) * factor;
+        trails[i].style.transform = `translate3d(${p.x.toFixed(2)}px, ${p.y.toFixed(2)}px, 0) translate(-50%, -50%)`;
+
+        const trailOpacity = !isProject ? Math.min(0.75, (mouseSpeed / 14) * 0.7) * (1 - i * 0.22) : 0;
+        trails[i].style.opacity = trailOpacity > 0.05 ? trailOpacity.toFixed(2) : '0';
+
+        prevX = p.x;
+        prevY = p.y;
+      }
+    }
+
+    requestAnimationFrame(renderCursor);
   }
-  renderOutline();
+  requestAnimationFrame(renderCursor);
 
-  // Active / Click Shockwave Ripple
+  // Active / Click Shockwave Dual Ripple
   window.addEventListener('mousedown', (e) => {
     document.body.classList.add('cursor-active');
 
@@ -130,26 +198,94 @@ function initCustomCursor() {
     ripple.style.left = `${e.clientX}px`;
     ripple.style.top = `${e.clientY}px`;
     document.body.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 500);
+    setTimeout(() => ripple.remove(), 550);
   });
 
   window.addEventListener('mouseup', () => {
     document.body.classList.remove('cursor-active');
   });
 
-  // Delegated hover states for all interactive elements (including dynamic modal content)
-  const interactiveSelector = 'a, button, input, textarea, select, [role="button"], .copyable, .tilt-card, .quick-chip, .skill-pill, .hero-avatar-wrapper, .modal-close-btn';
+  // Delegated interactive hover states
+  const projectSelector = '.project-card, [data-project], .banner-shield, .project-title-link';
+  const textInputSelector = 'input[type="text"], input[type="email"], textarea';
+  const interactiveSelector = 'a, button, input, textarea, select, [role="button"], .copyable, .tilt-card, .quick-chip, .skill-pill, .hero-avatar-wrapper, .modal-close-btn, .btn';
 
   document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(interactiveSelector)) {
+    const projectEl = e.target.closest(projectSelector);
+    const textEl = e.target.closest(textInputSelector);
+    const interactiveEl = e.target.closest(interactiveSelector);
+
+    if (projectEl) {
+      isProject = true;
+      isHovered = true;
+      document.body.classList.add('cursor-project');
+      document.body.classList.remove('cursor-hover', 'cursor-text-mode');
+      if (badge) badge.textContent = 'VIEW ↗';
+    } else if (textEl) {
+      isProject = false;
+      isHovered = true;
+      document.body.classList.add('cursor-text-mode');
+      document.body.classList.remove('cursor-project', 'cursor-hover');
+      if (badge) badge.textContent = '';
+    } else if (interactiveEl) {
+      isProject = false;
+      isHovered = true;
       document.body.classList.add('cursor-hover');
+      document.body.classList.remove('cursor-project', 'cursor-text-mode');
+      if (badge) badge.textContent = '';
     }
   });
 
   document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(interactiveSelector)) {
-      document.body.classList.remove('cursor-hover');
+    const related = e.relatedTarget;
+    if (!related || (!related.closest(projectSelector) && !related.closest(textInputSelector) && !related.closest(interactiveSelector))) {
+      isProject = false;
+      isHovered = false;
+      document.body.classList.remove('cursor-hover', 'cursor-project', 'cursor-text-mode');
+      if (badge) badge.textContent = '';
     }
+  });
+}
+
+// Subtle Magnetic Button Interaction
+function initMagneticButtons() {
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+  const magneticSelector = '.btn, .btn-icon, .nav-brand, .quick-chip, .nav-link, .hero-chip';
+  const elements = document.querySelectorAll(magneticSelector);
+
+  elements.forEach(el => {
+    if (el._hasMagnetic) return;
+    el._hasMagnetic = true;
+
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const deltaX = e.clientX - centerX;
+      const deltaY = e.clientY - centerY;
+
+      const pullX = Math.max(-10, Math.min(10, deltaX * 0.22));
+      const pullY = Math.max(-8, Math.min(8, deltaY * 0.22));
+
+      gsap.to(el, {
+        x: pullX,
+        y: pullY,
+        duration: 0.25,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
+
+    el.addEventListener('mouseleave', () => {
+      gsap.to(el, {
+        x: 0,
+        y: 0,
+        duration: 0.65,
+        ease: 'elastic.out(1, 0.4)',
+        overwrite: 'auto'
+      });
+    });
   });
 }
 
@@ -364,6 +500,7 @@ function initModals() {
       `;
 
       createIcons({ icons });
+      initMagneticButtons();
 
       // Contact trigger from modal
       projectModalContent.querySelector('.modal-contact-trigger')?.addEventListener('click', () => {
@@ -442,6 +579,7 @@ function initContactForm() {
 
       submitBtn.innerHTML = `<span>Sent Successfully!</span> <i data-lucide="check"></i>`;
       createIcons({ icons });
+      initMagneticButtons();
 
       // Open mailto with prefilled details
       const mailtoUrl = `mailto:pavanireddy.basangari@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Pavani,\n\nMy name is ${name} (${email}).\n\n${message}`)}`;
@@ -451,6 +589,7 @@ function initContactForm() {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
         createIcons({ icons });
+      initMagneticButtons();
       }, 3500);
     }, 900);
   });

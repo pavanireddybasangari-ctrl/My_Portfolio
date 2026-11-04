@@ -19,9 +19,16 @@
 </head>
 <body class="bg-dark text-light antialiased selection-accent">
 
-  <!-- Minimal Circular Cyber Cursor -->
-  <div id="cursor-dot" class="cursor-dot"></div>
-  <div id="cursor-outline" class="cursor-outline"></div>
+  <!-- Premium Interactive Cyber Cursor -->
+  <div id="cursor-container" class="cursor-container" aria-hidden="true">
+    <div id="cursor-trail-3" class="cursor-trail trail-3"></div>
+    <div id="cursor-trail-2" class="cursor-trail trail-2"></div>
+    <div id="cursor-trail-1" class="cursor-trail trail-1"></div>
+    <div id="cursor-outline" class="cursor-outline">
+      <span id="cursor-badge" class="cursor-badge"></span>
+    </div>
+    <div id="cursor-dot" class="cursor-dot"></div>
+  </div>
 
   <!-- Background 3D Canvas -->
   <canvas id="webgl-canvas" class="webgl-canvas"></canvas>
