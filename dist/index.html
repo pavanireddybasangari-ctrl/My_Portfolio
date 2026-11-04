@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basangari Pavani | Web Developer & Software Engineer</title>
+  <meta name="description" content="Portfolio of Basangari Pavani - Web Developer, Python & Java programmer, Machine Learning enthusiast based in Alwal, Hyderabad." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E💠%3C/text%3E%3C/svg%3E" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <script type="module" crossorigin src="./assets/index-7oGZanvo.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/three-CoIpIkfX.js">
+  <link rel="modulepreload" crossorigin href="./assets/vendor-Cq8OwK7v.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-BdiJHvjH.css">
+</head>
+<body class="bg-dark text-light antialiased selection-accent">
+
+  <!-- Minimal Circular Cyber Cursor -->
+  <div id="cursor-dot" class="cursor-dot"></div>
+  <div id="cursor-outline" class="cursor-outline"></div>
+
+  <!-- Background 3D Canvas -->
+  <canvas id="webgl-canvas" class="webgl-canvas"></canvas>
+
+  <!-- Ambient Glow Blobs -->
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-purple"></div>
+  <div class="ambient-glow glow-blue"></div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-badge">&lt;BP&gt;</span>
+        <span class="brand-name">Pavani<span class="text-accent">.dev</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Journey</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+        <button id="mobile-menu-btn" class="btn-icon mobile-only" aria-label="Open navigation menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-inner">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#experience" class="mobile-link">Journey</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <div class="mobile-contact-info">
+          <a href="mailto:pavanireddy.basangari@gmail.com" class="mobile-info-item">
+            <i data-lucide="mail"></i> pavanireddy.basangari@gmail.com
+          </a>
+          <a href="tel:7794897255" class="mobile-info-item">
+            <i data-lucide="phone"></i> +91 7794897255
+          </a>
+          <a href="https://github.com/pavanireddybasangari-ctrl" target="_blank" rel="noopener noreferrer" class="mobile-info-item">
+            <i data-lucide="github"></i> github.com/pavanireddybasangari-ctrl
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Content Wrapper -->
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Top Center Professional Circular Image -->
+          <div class="hero-avatar-wrapper animate-fade-in">
+            <div class="avatar-circle-ring">
+              <div class="avatar-glow-backdrop"></div>
+              <img src="./assets/profile-o9SMXK8Y.jpg" alt="Basangari Pavani - Web Developer" class="hero-avatar-img" />
+              <div class="avatar-status-badge" title="Online & Available">
+                <span class="status-badge-dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Availability Pill -->
+          <div class="status-pill animate-fade-in">
+            <span class="status-dot"></span>
+            <span class="status-text">Available for Web & ML Engineering Roles</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="hero-title animate-slide-up">
+            <span class="greeting">Hello, I'm</span>
+            <span class="gradient-text name-highlight">Basangari Pavani</span>
+          </h1>
+
+          <!-- Dynamic Typing Text -->
+          <div class="dynamic-role-wrapper">
+            <span class="role-prefix">&gt; </span>
+            <span id="typewriter" class="typewriter-text">Web Developer</span>
+            <span class="cursor-blink">_</span>
+          </div>
+
+          <!-- Description -->
+          <p class="hero-description">
+            Passionate Web Developer specializing in crafting interactive, high-performance web applications, 
+            backed by strong foundations in <strong class="highlight">Python</strong>, <strong class="highlight">Java</strong>, 
+            and data-driven <strong class="highlight">Machine Learning</strong> solutions.
+          </p>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary btn-lg">
+              <span>View Projects</span>
+              <i data-lucide="layers"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline btn-lg">
+              <span>Contact Me</span>
+              <i data-lucide="send"></i>
+            </a>
+            <button id="open-bio-modal" class="btn btn-glass btn-lg" title="Quick Bio & Credentials">
+              <span>Quick Profile</span>
+              <i data-lucide="user-check"></i>
+            </button>
+          </div>
+
+          <!-- Hero Contact Pills -->
+          <div class="hero-quick-chips">
+            <a href="mailto:pavanireddy.basangari@gmail.com" class="quick-chip email-chip" title="Send Email (Opens Mail App)">
+              <i data-lucide="mail"></i>
+              <span>pavanireddy.basangari@gmail.com</span>
+              <i data-lucide="arrow-up-right" class="icon-sm"></i>
+            </a>
+            <a href="tel:7794897255" class="quick-chip phone-chip" title="Call Pavani (Opens Phone App)">
+              <i data-lucide="phone"></i>
+              <span>+91 7794897255</span>
+              <i data-lucide="arrow-up-right" class="icon-sm"></i>
+            </a>
+            <div class="quick-chip location-chip">
+              <i data-lucide="map-pin"></i>
+              <span>Alwal, Hyderabad, India</span>
+            </div>
+            <a href="https://github.com/pavanireddybasangari-ctrl" target="_blank" rel="noopener noreferrer" class="quick-chip github-chip" title="GitHub: @pavanireddybasangari-ctrl">
+              <i data-lucide="github"></i>
+              <span>GitHub</span>
+              <i data-lucide="external-link" class="icon-sm"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pavani-basangari-91919a422?" target="_blank" rel="noopener noreferrer" class="quick-chip linkedin-chip">
+              <i data-lucide="linkedin"></i>
+              <span>LinkedIn Profile</span>
+              <i data-lucide="external-link" class="icon-sm"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="scroll-down-indicator" aria-label="Scroll down">
+        <span class="mouse-icon">
+          <span class="wheel"></span>
+        </span>
+        <span class="scroll-text">Scroll to explore</span>
+      </a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;about-me&gt;</span>
+          <h2 class="section-title">Engineering Digital Experiences</h2>
+          <p class="section-subtitle">Bridging aesthetic frontend design, robust backend logic, and intelligent algorithms</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Main Narrative Card -->
+          <div class="glass-card about-main-card tilt-card">
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <div class="badge-icon">
+                <i data-lucide="code-2"></i>
+              </div>
+              <h3 class="card-heading">Who I Am</h3>
+              <p class="about-text">
+                I am <strong>Basangari Pavani</strong>, a dedicated Web Developer based in <strong>Alwal, Hyderabad</strong>. 
+                With a strong technical foundation in modern web technologies, <strong>Python</strong>, <strong>Java</strong>, 
+                and <strong>Machine Learning</strong>, I focus on engineering scalable, responsive, and user-centric web applications.
+              </p>
+              <p class="about-text">
+                My journey combines clean coding practices, modern UI/UX design, and applying data-driven intelligence to solve real-world problems. 
+                Whether building responsive client applications or training predictive machine learning models, I love tackling challenging technical architectures.
+              </p>
+
+              <div class="personal-details-row">
+                <div class="detail-item">
+                  <span class="detail-label">Location</span>
+                  <span class="detail-val">Alwal, Hyderabad</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Primary Role</span>
+                  <span class="detail-val">Web Developer</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Languages</span>
+                  <span class="detail-val">Python, Java, JavaScript</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Interest</span>
+                  <span class="detail-val">Machine Learning & Web 3D</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric Highlights Bento -->
+          <div class="glass-card metric-card tilt-card">
+            <div class="metric-icon"><i data-lucide="globe"></i></div>
+            <div class="metric-number">Modern Web</div>
+            <div class="metric-desc">Responsive, intuitive user interfaces built with clean component structures</div>
+          </div>
+
+          <div class="glass-card metric-card tilt-card">
+            <div class="metric-icon"><i data-lucide="cpu"></i></div>
+            <div class="metric-number">Python & Java</div>
+            <div class="metric-desc">Robust object-oriented programming, algorithmic foundations & backend logic</div>
+          </div>
+
+          <div class="glass-card metric-card tilt-card">
+            <div class="metric-icon"><i data-lucide="brain"></i></div>
+            <div class="metric-number">Machine Learning</div>
+            <div class="metric-desc">Data analysis, predictive modeling & intelligent insight generation</div>
+          </div>
+
+          <div class="glass-card metric-card tilt-card">
+            <div class="metric-icon"><i data-lucide="zap"></i></div>
+            <div class="metric-number">3D & Interactive</div>
+            <div class="metric-desc">Rich WebGL animations and silky smooth user interactions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;tech-arsenal&gt;</span>
+          <h2 class="section-title">Skills & Technical Expertise</h2>
+          <p class="section-subtitle">Core competencies across web technologies, system programming, and artificial intelligence</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Category 1: Web Development -->
+          <div class="glass-card skill-cluster tilt-card">
+            <div class="cluster-header">
+              <div class="cluster-icon icon-cyan">
+                <i data-lucide="layout"></i>
+              </div>
+              <div>
+                <h3 class="cluster-title">Web Development</h3>
+                <span class="cluster-sub">Frontend Architecture & UI/UX</span>
+              </div>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill">
+                <span class="pill-name">HTML5 / Semantic Web</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">CSS3 / Animations / Flex & Grid</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">JavaScript (ES6+)</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">React.js & Components</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Responsive Design & Mobile-First</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">RESTful APIs & Async Data</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Category 2: Core Programming -->
+          <div class="glass-card skill-cluster tilt-card">
+            <div class="cluster-header">
+              <div class="cluster-icon icon-purple">
+                <i data-lucide="terminal"></i>
+              </div>
+              <div>
+                <h3 class="cluster-title">Core Programming</h3>
+                <span class="cluster-sub">Python & Java Development</span>
+              </div>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill">
+                <span class="pill-name">Python Programming</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Java (Core & OOP)</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Data Structures & Algorithms</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Exception Handling & Modularity</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Scripting & Automation</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Category 3: Machine Learning & Data -->
+          <div class="glass-card skill-cluster tilt-card">
+            <div class="cluster-header">
+              <div class="cluster-icon icon-blue">
+                <i data-lucide="brain"></i>
+              </div>
+              <div>
+                <h3 class="cluster-title">Machine Learning & Data</h3>
+                <span class="cluster-sub">Intelligent Algorithms & Insights</span>
+              </div>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill">
+                <span class="pill-name">Supervised / Unsupervised ML</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Scikit-Learn Framework</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Pandas & NumPy Analytics</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Data Preprocessing & Cleaning</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Model Evaluation & Metrics</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Category 4: Tools & Practices -->
+          <div class="glass-card skill-cluster tilt-card">
+            <div class="cluster-header">
+              <div class="cluster-icon icon-emerald">
+                <i data-lucide="wrench"></i>
+              </div>
+              <div>
+                <h3 class="cluster-title">Tools & Engineering</h3>
+                <span class="cluster-sub">Development Workflow & DevOps</span>
+              </div>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill">
+                <span class="pill-name">Git & GitHub Version Control</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">VS Code / IDE Workflows</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Vite & Build Tooling</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Postman API Testing</span>
+                <span class="pill-level">Proficient</span>
+              </div>
+              <div class="skill-pill">
+                <span class="pill-name">Clean Code & Debugging</span>
+                <span class="pill-level">Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;portfolio-showcase&gt;</span>
+          <h2 class="section-title">Featured Project</h2>
+          <p class="section-subtitle">A showcase of production-ready web application engineering, modern responsive UI, and interactive architecture</p>
+        </div>
+
+        <div class="projects-grid single-project-grid">
+          <!-- Project: SkillShield -->
+          <div class="glass-card project-card tilt-card" data-project="skillshield">
+            <a href="https://pavanireddybasangari-ctrl.github.io/blog-application/" target="_blank" rel="noopener noreferrer" class="project-banner banner-shield" aria-label="Open SkillShield project in new tab">
+              <div class="banner-badge">Web Application • Live</div>
+              <div class="banner-icon"><i data-lucide="shield-check"></i></div>
+            </a>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-type">Web Development & Blog</span>
+                <span class="project-date">Live Production</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://pavanireddybasangari-ctrl.github.io/blog-application/" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                  <span>SkillShield</span>
+                  <i data-lucide="external-link" class="link-ext-icon"></i>
+                </a>
+              </h3>
+              <p class="project-desc">
+                A modern, responsive blog platform engineered with clean architectural design, dynamic content structure, seamless navigation, and cross-device optimization.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">HTML5 / CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Web Development</span>
+                <span class="tag">Responsive UI</span>
+                <span class="tag">GitHub Pages</span>
+                <span class="tag">Blog Architecture</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://pavanireddybasangari-ctrl.github.io/blog-application/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Visit SkillShield</span>
+                  <i data-lucide="external-link"></i>
+                </a>
+                <a href="https://github.com/pavanireddybasangari-ctrl/blog-application" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  <i data-lucide="github"></i>
+                  <span>Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY / EDUCATION SECTION -->
+    <section id="experience" class="section journey-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;academic-trajectory&gt;</span>
+          <h2 class="section-title">Education & Milestones</h2>
+          <p class="section-subtitle">Academic foundations and continuous engineering development in Hyderabad</p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <i data-lucide="graduation-cap"></i>
+            </div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-badge">Academic Qualification</div>
+              <h3 class="timeline-heading">Computer Science & Engineering Studies</h3>
+              <span class="timeline-location"><i data-lucide="map-pin"></i> Hyderabad, Telangana</span>
+              <p class="timeline-desc">
+                Rigorous training in Computer Science fundamentals: Object-Oriented Programming (Java), 
+                Database Systems, Data Structures & Algorithms, Software Engineering, and Operating Systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <i data-lucide="code"></i>
+            </div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-badge">Specialization</div>
+              <h3 class="timeline-heading">Full-Stack Web Development & Modern JavaScript</h3>
+              <span class="timeline-location"><i data-lucide="check-circle-2"></i> Professional Skill Building</span>
+              <p class="timeline-desc">
+                Mastered responsive design, HTML5, modern CSS3 animations, JavaScript (ES6+), React.js component architecture, 
+                and building scalable web interfaces with seamless user experience.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <i data-lucide="cpu"></i>
+            </div>
+            <div class="glass-card timeline-card">
+              <div class="timeline-badge">AI & Machine Learning</div>
+              <h3 class="timeline-heading">Python & Applied Machine Learning</h3>
+              <span class="timeline-location"><i data-lucide="trending-up"></i> Data Science & AI</span>
+              <p class="timeline-desc">
+                Specialized coursework and practical implementation in Python data ecosystems (Pandas, NumPy, Scikit-Learn), 
+                supervised learning models, classification & regression pipelines, and exploratory data analytics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">&lt;get-in-touch&gt;</span>
+          <h2 class="section-title">Let's Connect & Collaborate</h2>
+          <p class="section-subtitle">Have a project in mind, an open role, or want to discuss technology? Reach out directly!</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Channels Info -->
+          <div class="contact-cards-column">
+            <!-- Email Card -->
+            <a href="mailto:pavanireddy.basangari@gmail.com" class="glass-card contact-info-card email-card" title="Send Email (Opens Mail App)">
+              <div class="info-icon email-icon">
+                <i data-lucide="mail"></i>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Direct Email</span>
+                <span class="info-value">pavanireddy.basangari@gmail.com</span>
+                <span class="external-hint">Open Mail App <i data-lucide="arrow-up-right"></i></span>
+              </div>
+            </a>
+
+            <!-- Phone Card -->
+            <a href="tel:7794897255" class="glass-card contact-info-card phone-card" title="Call Pavani (Opens Phone App)">
+              <div class="info-icon phone-icon">
+                <i data-lucide="phone"></i>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Direct Phone</span>
+                <span class="info-value">+91 7794897255</span>
+                <span class="external-hint">Call / Dial <i data-lucide="arrow-up-right"></i></span>
+              </div>
+            </a>
+
+            <!-- Location Card with Live Clock -->
+            <div class="glass-card contact-info-card">
+              <div class="info-icon loc-icon">
+                <i data-lucide="map-pin"></i>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Location & Timezone</span>
+                <div class="info-value">Alwal, Hyderabad, India</div>
+                <div class="live-clock-wrapper">
+                  <span class="clock-indicator"></span>
+                  <span id="hyderabad-clock" class="mono text-accent">IST Loading...</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- LinkedIn Profile Card -->
+            <a href="https://www.linkedin.com/in/pavani-basangari-91919a422?" target="_blank" rel="noopener noreferrer" class="glass-card contact-info-card linkedin-card" title="View LinkedIn Profile">
+              <div class="info-icon linkedin-icon">
+                <i data-lucide="linkedin"></i>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Professional Network</span>
+                <div class="info-value">LinkedIn Profile</div>
+                <span class="external-hint">linkedin.com/in/pavani-basangari <i data-lucide="arrow-up-right"></i></span>
+              </div>
+            </a>
+
+            <!-- GitHub Profile Card -->
+            <a href="https://github.com/pavanireddybasangari-ctrl" target="_blank" rel="noopener noreferrer" class="glass-card contact-info-card github-card" title="View GitHub: @pavanireddybasangari-ctrl">
+              <div class="info-icon github-icon">
+                <i data-lucide="github"></i>
+              </div>
+              <div class="info-details">
+                <span class="info-label">Open Source & Projects</span>
+                <div class="info-value">GitHub Profile</div>
+                <span class="external-hint">github.com/pavanireddybasangari-ctrl <i data-lucide="arrow-up-right"></i></span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="glass-card contact-form-card">
+            <h3 class="form-title">Send a Direct Message</h3>
+            <p class="form-desc">Fill out this quick form or send an email directly to connect.</p>
+
+            <form id="contact-form" class="interactive-form">
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. alex@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="Web Development / ML Collaboration" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" rows="4" class="form-input form-textarea" placeholder="Tell me about your project or opportunity..." required></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-full">
+                <span>Send Message</span>
+                <i data-lucide="send"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="brand-badge">&lt;BP&gt;</span>
+        <span class="brand-name">Basangari Pavani</span>
+        <p class="footer-tagline">Web Developer • Python • Java • Machine Learning</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/pavanireddybasangari-ctrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/pavani-basangari-91919a422?" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+      <div class="footer-meta">
+        <p class="copyright">© 2026 Basangari Pavani. All rights reserved.</p>
+        <p class="built-with">Engineered with Three.js WebGL & Modern CSS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="close-modal-btn" class="modal-close-btn" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="modal-content-area" class="modal-content">
+        <!-- Dynamically injected by main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- BIO / QUICK PROFILE MODAL -->
+  <div id="bio-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="close-bio-btn" class="modal-close-btn" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-content">
+        <div class="bio-header">
+          <div class="bio-avatar">
+            <img src="./assets/profile-o9SMXK8Y.jpg" alt="Basangari Pavani" class="bio-avatar-img" />
+          </div>
+          <div>
+            <h3 class="modal-title">Basangari Pavani</h3>
+            <p class="modal-subtitle text-accent">Web Developer & Software Engineer</p>
+          </div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-info-grid">
+            <div class="bio-row">
+              <span class="bio-label">Location:</span>
+              <span class="bio-val">Alwal, Hyderabad, India</span>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">Email:</span>
+              <a href="mailto:pavanireddy.basangari@gmail.com" class="bio-val text-accent">pavanireddy.basangari@gmail.com</a>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">Phone:</span>
+              <a href="tel:7794897255" class="bio-val text-accent">+91 7794897255</a>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">Core Tech:</span>
+              <span class="bio-val">Web Development, Python, Java, Machine Learning</span>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">LinkedIn:</span>
+              <a href="https://www.linkedin.com/in/pavani-basangari-91919a422?" target="_blank" class="bio-val text-accent">pavani-basangari-91919a422</a>
+            </div>
+            <div class="bio-row">
+              <span class="bio-label">GitHub:</span>
+              <a href="https://github.com/pavanireddybasangari-ctrl" target="_blank" rel="noopener noreferrer" class="bio-val text-accent">pavanireddybasangari-ctrl</a>
+            </div>
+          </div>
+          <div class="bio-actions" style="display: flex; gap: 0.75rem;">
+            <a href="https://github.com/pavanireddybasangari-ctrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="flex: 1;">
+              <i data-lucide="github"></i> GitHub
+            </a>
+            <a href="mailto:pavanireddy.basangari@gmail.com" class="btn btn-primary" style="flex: 1.2;">
+              <i data-lucide="mail"></i> Email Pavani
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Main JavaScript Application Entry -->
+</body>
+</html>
